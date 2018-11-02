@@ -62,7 +62,7 @@ function! SpaceVim#layers#unite#config() abort
   let g:unite_source_rec_min_cache_files = 1000
 
   if has('nvim')
-    let cmd = 'Unite file_rec/neovim'
+    let cmd = 'Unite file_rec'
   else
     let cmd = 'Unite file_rec/async'
   endif
@@ -85,7 +85,7 @@ function! SpaceVim#layers#unite#config() abort
         \ 'shell cmd(project root)', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'Unite colorscheme', 'fuzzy find colorschemes', 1)
   if has('nvim')
-    nnoremap <silent> <C-p> :Unite file_rec/neovim<cr>
+    nnoremap <silent> <C-p> :Unite file_rec<cr>
   else
     nnoremap <silent> <C-p> :Unite file_rec/async<cr>
   endif
