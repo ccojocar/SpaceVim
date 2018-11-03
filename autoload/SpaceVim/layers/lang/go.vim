@@ -61,6 +61,7 @@ function! SpaceVim#layers#lang#go#config() abort
   let g:neomake_go_gometalinter_args = ['--disable-all']
   let g:go_snippet_engine = 'neosnippet'
   let g:go_rename_command = 'gopls'
+  let g:go_def_mode = 'godef'
 
   if SpaceVim#layers#lsp#check_filetype('go')
     call SpaceVim#mapping#gd#add('go',
