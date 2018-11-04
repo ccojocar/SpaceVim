@@ -121,6 +121,9 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
         \ '<Plug>(go-implements)',
         \ 'go implements', 0)
+  " call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
+        " \ 'call LanguageClient#textDocument_implementation()',
+        " \ 'go implements', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','I'],
         \ ':GoImpl',
         \ 'impl stubs', 1)
