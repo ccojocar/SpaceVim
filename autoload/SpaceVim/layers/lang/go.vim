@@ -92,9 +92,21 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','D'],
         \ '<Plug>(go-doc-vertical)',
         \ 'go doc (vertical)', 0)
+  " call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
+        " \ 'call LanguageClient_textDocument_rename()',
+        " \ 'go rename', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
         \ '<Plug>(go-rename)',
         \ 'go rename', 0)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','f'],
+        \ 'call LanguageClient_textDocument_documentSymbol()',
+        \ 'list symblols', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','F'],
+        \ 'call LanguageClient_workspace_symbol()',
+        \ 'list workspace symblols', 1)
+  " call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
+        " \ 'call LanguageClient_textDocument_definition()',
+        " \ 'go def', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
         \ '<Plug>(go-def)',
         \ 'go def', 0)
@@ -102,8 +114,8 @@ function! s:language_specified_mappings() abort
         \ ':GoGenerate',
         \ 'go generate', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','h'],
-        \ '<Plug>(go-info)',
-        \ 'go info', 0)
+        \ 'call LanguageClient_textDocument_hover()',
+        \ 'go info', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
         \ '<Plug>(go-implements)',
         \ 'go implements', 0)
@@ -129,7 +141,7 @@ function! s:language_specified_mappings() abort
         \ ':GoImport ',
         \ 'add import', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
-        \ ':GoReferrers',
+        \ 'call LanguageClient_textDocument_references()',
         \ 'go referrers', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','s'],
         \ ':GoFillStruct',
