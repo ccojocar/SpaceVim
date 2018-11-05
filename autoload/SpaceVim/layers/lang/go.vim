@@ -94,9 +94,6 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','D'],
         \ '<Plug>(go-doc-vertical)',
         \ 'go doc (vertical)', 0)
-  " call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
-        " \ 'call LanguageClient_textDocument_rename()',
-        " \ 'go rename', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
         \ 'call LanguageClient_textDocument_rename()',
         \ 'go rename', 1)
