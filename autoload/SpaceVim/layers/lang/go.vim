@@ -106,12 +106,12 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','F'],
         \ 'call LanguageClient_workspace_symbol()',
         \ 'list workspace symblols', 1)
-  " call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
-        " \ 'call LanguageClient_textDocument_definition()',
-        " \ 'go def', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
-        \ '<Plug>(go-def)',
-        \ 'go def', 0)
+        \ 'call LanguageClient_textDocument_definition()',
+        \ 'go def', 1)
+  " call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
+        " \ '<Plug>(go-def)',
+        " \ 'go def', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','G'],
         \ ':GoGenerate',
         \ 'go generate', 1)
