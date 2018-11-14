@@ -106,9 +106,6 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','F'],
         \ 'call LanguageClient_workspace_symbol()',
         \ 'list workspace symblols', 1)
-  " call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
-        " \ 'call LanguageClient_textDocument_definition()',
-        " \ 'go def', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
         \ 'call LanguageClient_textDocument_definition()',
         \ 'go def', 1)
