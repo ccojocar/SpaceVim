@@ -110,7 +110,6 @@ function! SpaceVim#layers#lang#rust#config() abort
   call SpaceVim#mapping#space#regesit_lang_mappings('rust', function('s:language_specified_mappings'))
   call add(g:spacevim_project_rooter_patterns, 'Cargo.toml')
 
-  let g:rustfmt_autosave = 1
   if SpaceVim#layers#lsp#check_filetype('rust')
     call SpaceVim#mapping#gd#add('rust', function('SpaceVim#lsp#go_to_def'))
   else
