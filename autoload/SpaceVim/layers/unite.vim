@@ -57,8 +57,12 @@ function! SpaceVim#layers#unite#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['r', 'l'], 'Unite resume', 'resume unite buffer', 1)
   let g:_spacevim_mappings_space.i = {'name' : '+Insertion'}
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'u'], 'Unite unicode', 'search-and-insert-unicode', 1)
+  let g:unite_source_rec_async_command =
+        \ ['ag', '--follow', '--nocolor', '-p', '~/.agignore', '-g', '']
+  let g:unite_source_rec_min_cache_files = 1000
+
   if has('nvim')
-    let cmd = 'Unite file_rec'
+    let cmd = 'Unite file_rec/neovim'
   else
     let cmd = 'Unite file_rec/async'
   endif
@@ -81,7 +85,7 @@ function! SpaceVim#layers#unite#config() abort
         \ 'shell cmd(project root)', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'Unite colorscheme', 'fuzzy find colorschemes', 1)
   if has('nvim')
-    nnoremap <silent> <C-p> :Unite file_rec<cr>
+    nnoremap <silent> <C-p> :Unite file_rec/neovim<cr>
   else
     nnoremap <silent> <C-p> :Unite file_rec/async<cr>
   endif
