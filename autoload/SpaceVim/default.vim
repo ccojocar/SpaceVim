@@ -113,7 +113,7 @@ function! SpaceVim#default#options() abort
   set showmode
   "menuone: show the pupmenu when only one match
   " disable preview scratch window,
-  set completeopt=menu,menuone,longest
+  set completeopt=menu,menuone,longest,noinsert
   " h: 'complete'
   set complete=.,w,b,u,t
   " limit completion menu height
