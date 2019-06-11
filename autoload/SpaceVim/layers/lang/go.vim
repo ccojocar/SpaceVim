@@ -94,12 +94,12 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','D'],
         \ '<Plug>(go-doc-vertical)',
         \ 'go doc (vertical)', 0)
-  call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
-        \ 'call LanguageClient_textDocument_rename()',
-        \ 'go rename', 1)
   " call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
-        " \ '<Plug>(go-rename)',
-        " \ 'go rename', 0)
+        " \ 'call LanguageClient_textDocument_rename()',
+        " \ 'go rename', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
+        \ '<Plug>(go-rename)',
+        \ 'go rename', 0)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','f'],
         \ 'call LanguageClient_textDocument_documentSymbol()',
         \ 'list symblols', 1)
@@ -145,7 +145,7 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','M'],
         \ ':GoImport ',
         \ 'add import', 0)
-  call SpaceVim#mapping#space#langSPC('nmap', ['l','x'],
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
         \ 'call LanguageClient_textDocument_references()',
         \ 'go referrers', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','s'],
@@ -160,5 +160,5 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','v'],
         \ ':GoFreevars',
         \ 'freevars', 1)
-  call SpaceVim#mapping#space#langSPC('nmap', ['l','r'], 'call SpaceVim#plugins#runner#open()', 'execute current file', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','x'], 'call SpaceVim#plugins#runner#open()', 'execute current file', 1)
 endfunction
