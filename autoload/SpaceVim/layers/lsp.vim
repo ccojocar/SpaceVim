@@ -242,3 +242,23 @@ endif
 function! s:clear_errors() abort
   sign unplace *
 endfunction
+
+let settings = json_decode('
+\{
+\    "yaml": {
+\        "completion": true,
+\        "hover": true,
+\        "validate": true,
+\        "schemas": {
+\            "https://jenkins-x.io/schemas/jx-schema.json": "/*jenkins-x*.yml"
+\        },
+\        "format": {
+\            "enable": true
+\        }
+\    }
+\}')
+augroup LanguageClient_config
+    autocmd!
+    autocmd User LanguageClientStarted call LanguageClient#Notify(
+        \ 'workspace/didChangeConfiguration', {'settings': settings})
+augroup END
