@@ -18,7 +18,7 @@ function! SpaceVim#layers#lsp#plugins() abort
     " nop
   elseif has('nvim')
     call add(plugins, ['autozimu/LanguageClient-neovim',
-          \ { 'merged': 0, 'if': has('python3'), 'build' : 'bash install.sh' }])
+          \ { 'branch': 'next', 'merged': 0, 'if': has('python3'), 'build' : 'bash install.sh' }])
   else
     call add(plugins, ['prabirshrestha/async.vim', {'merged' : 0}])
     call add(plugins, ['prabirshrestha/vim-lsp', {'merged' : 0}])
@@ -29,6 +29,7 @@ endfunction
 
 function! SpaceVim#layers#lsp#config() abort
   " SpaceVim/LanguageClient-neovim {{{
+  " let g:LanguageClient_diagnosticsEnable = 0
   let g:LanguageClient_diagnosticsDisplay = {
         \ 1: {
         \ 'name': 'Error',
@@ -243,22 +244,22 @@ function! s:clear_errors() abort
   sign unplace *
 endfunction
 
-let settings = json_decode('
-\{
-\    "yaml": {
-\        "completion": true,
-\        "hover": true,
-\        "validate": true,
-\        "schemas": {
-\            "https://jenkins-x.io/schemas/jx-schema.json": "/*jenkins-x*.yml"
-\        },
-\        "format": {
-\            "enable": true
-\        }
-\    }
-\}')
-augroup LanguageClient_config
-    autocmd!
-    autocmd User LanguageClientStarted call LanguageClient#Notify(
-        \ 'workspace/didChangeConfiguration', {'settings': settings})
-augroup END
+" let settings = json_decode('
+" \{
+" \    "yaml": {
+" \        "completion": true,
+" \        "hover": true,
+" \        "validate": true,
+" \        "schemas": {
+" \            "https://jenkins-x.io/schemas/jx-schema.json": "/*jenkins-x*.yml"
+" \        },
+" \        "format": {
+" \            "enable": true
+" \        }
+" \    }
+" \}')
+" augroup LanguageClient_config
+    " autocmd!
+    " autocmd User LanguageClientStarted call LanguageClient#Notify(
+        " \ 'workspace/didChangeConfiguration', {'settings': settings})
+" augroup END
