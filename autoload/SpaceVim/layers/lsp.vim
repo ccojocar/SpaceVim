@@ -138,6 +138,7 @@ let s:lsp_servers = {
       \ 'sh' : ['bash-language-server', 'start'],
       \ 'typescript' : ['typescript-language-server', '--stdio'],
       \ 'ruby' : ['solargraph',  'stdio'],
+      \ 'terraform' : ['terraform-lsp'],
       \ 'vue' : ['vls'],
       \ 'yaml': ['yaml-language-server', '--stdio']   
       \ }
