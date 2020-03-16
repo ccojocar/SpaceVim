@@ -105,6 +105,9 @@ function! SpaceVim#layers#lsp#config() abort
   for ft in s:enabled_fts
     call SpaceVim#lsp#reg_server(ft, s:lsp_servers[ft])
   endfor
+
+  let g:LanguageClient_loadSettings = 1
+  let g:LanguageClient_settingsPath = "/Users/cosmin/.config/nvim/settings.json"
 endfunction
 
 let s:enabled_fts = []
@@ -116,6 +119,7 @@ let s:lsp_servers = {
       \ 'css' : ['css-languageserver', '--stdio'],
       \ 'dart' : ['dart_language_server'],
       \ 'dockerfile' : ['docker-langserver', '--stdio'],
+      \ 'groovy' : ['java', '-jar', '~/bin/groovy-language-server.jar'],
       \ 'go' : ['gopls', '-mode', 'stdio'],
       \ 'haskell' : ['hie-wrapper', '--lsp'],
       \ 'rust' : ['rustup', 'run', 'nightly', 'rls'],
@@ -244,22 +248,3 @@ function! s:clear_errors() abort
   sign unplace *
 endfunction
 
-" let settings = json_decode('
-" \{
-" \    "yaml": {
-" \        "completion": true,
-" \        "hover": true,
-" \        "validate": true,
-" \        "schemas": {
-" \            "https://jenkins-x.io/schemas/jx-schema.json": "/*jenkins-x*.yml"
-" \        },
-" \        "format": {
-" \            "enable": true
-" \        }
-" \    }
-" \}')
-" augroup LanguageClient_config
-    " autocmd!
-    " autocmd User LanguageClientStarted call LanguageClient#Notify(
-        " \ 'workspace/didChangeConfiguration', {'settings': settings})
-" augroup END
