@@ -11,7 +11,7 @@
 " s:git_plugin which plugin is used as the background plugin in git layer
 
 
-let s:git_plugin = 'git'
+let s:git_plugin = 'gina'
 
 
 
@@ -43,7 +43,7 @@ function! SpaceVim#layers#git#config() abort
     call SpaceVim#mapping#space#def('nnoremap', ['g', 's'], 'Gina status --opener=10split', 'git-status', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'S'], 'Gina add %', 'stage-current-file', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'U'], 'Gina reset -q %', 'unstage-current-file', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['g', 'c'], 'Gina commit --signoff', 'edit git commit', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['g', 'c'], 'Gina commit --signoff', 'edit-git-commit', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'p'], 'Gina push', 'git-push', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'd'], 'Gina diff', 'view-git-diff', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['g', 'A'], 'Gina add .', 'stage-all-files', 1)
