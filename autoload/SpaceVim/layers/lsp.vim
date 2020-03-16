@@ -107,7 +107,7 @@ function! SpaceVim#layers#lsp#config() abort
   endfor
 
   let g:LanguageClient_loadSettings = 1
-  let g:LanguageClient_settingsPath = "/Users/cosmin/.config/nvim/settings.json"
+  let g:LanguageClient_settingsPath = "/Users/cosmin/.SpaceVim.d/lsp-settings.json"
 endfunction
 
 let s:enabled_fts = []
