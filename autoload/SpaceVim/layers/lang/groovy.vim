@@ -48,8 +48,6 @@ function! SpaceVim#layers#lang#groovy#config() abort
 endfunction
 
 function! s:language_specified_mappings() abort
-  call SpaceVim#mapping#space#langSPC('nmap', ['l','r'], 'call SpaceVim#plugins#runner#open()', 'execute current file', 1)
-  let g:_spacevim_mappings_space.l.s = {'name' : '+Send'}
   call SpaceVim#mapping#space#langSPC('nmap', ['l','f'],
         \ 'call LanguageClient_textDocument_documentSymbol()',
         \ 'list symblols', 1)
@@ -68,6 +66,8 @@ function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
         \ 'call LanguageClient_textDocument_references()',
         \ 'go referrers', 1)
+
+  let g:_spacevim_mappings_space.l.s = {'name' : '+Send'}
   call SpaceVim#mapping#space#langSPC('nmap', ['l','s', 'i'],
         \ 'call SpaceVim#plugins#repl#start("groovy")',
         \ 'start REPL process', 1)

@@ -160,6 +160,7 @@ function! SpaceVim#layers#lang#c#config() abort
         \ 'usestdin' : 1,
         \ }
   call SpaceVim#plugins#runner#reg_runner('c', [runner1, '#TEMP#'])
+
   call SpaceVim#mapping#space#regesit_lang_mappings('c', function('s:language_specified_mappings'))
   let runner2 = {
         \ 'exe' : 'g++',
@@ -173,8 +174,9 @@ function! SpaceVim#layers#lang#c#config() abort
   else
     call SpaceVim#plugins#repl#reg('c', 'igcc')
   endif
-  call SpaceVim#mapping#space#regesit_lang_mappings('cpp', funcref('s:language_specified_mappings'))
-  call SpaceVim#plugins#projectmanager#reg_callback(funcref('s:update_clang_flag'))
+
+  call SpaceVim#mapping#space#regesit_lang_mappings('cpp', function('s:language_specified_mappings'))
+  call SpaceVim#plugins#projectmanager#reg_callback(function('s:update_clang_flag'))
   if executable('clang')
     let g:neomake_c_enabled_makers = ['clang']
     let g:neomake_cpp_enabled_makers = ['clang']
@@ -252,33 +254,25 @@ endfunction
 
 " local function: language_specified_mappings {{{
 function! s:language_specified_mappings() abort
-
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','f'],
+        \ 'call LanguageClient_textDocument_documentSymbol()',
+        \ 'list symblols', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','F'],
+        \ 'call LanguageClient_workspace_symbol()',
+        \ 'list workspace symblols', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
+        \ 'call LanguageClient_textDocument_definition()',
+        \ 'go def', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','h'],
+        \ 'call LanguageClient_textDocument_hover()',
+        \ 'go info', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
+        \ 'call LanguageClient#textDocument_implementation()',
+        \ 'go implements', 1)
   call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
-        \ 'call SpaceVim#plugins#runner#open()',
-        \ 'execute current file', 1)
-  if SpaceVim#layers#lsp#check_filetype('c')
-    nnoremap <silent><buffer> K :call SpaceVim#lsp#show_doc()<CR>
+        \ 'call LanguageClient_textDocument_references()',
+        \ 'go referrers', 1)
 
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'],
-          \ 'call SpaceVim#lsp#show_doc()', 'show_document', 1)
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'e'],
-          \ 'call SpaceVim#lsp#rename()', 'rename symbol', 1)
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'f'],
-          \ 'call SpaceVim#lsp#references()', 'references', 1)
-
-    " these work for now with coc.nvim only
-
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'i'],
-          \ 'call SpaceVim#lsp#go_to_impl()', 'implementation', 1)
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 't'],
-          \ 'call SpaceVim#lsp#go_to_typedef()', 'type definition', 1)
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'R'],
-          \ 'call SpaceVim#lsp#refactor()', 'refactor', 1)
-    " TODO this should be gD
-    call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'D'],
-          \ 'call SpaceVim#lsp#go_to_declaration()', 'declaration', 1)
-
-  endif
   let g:_spacevim_mappings_space.l.s = {'name' : '+Send'}
   call SpaceVim#mapping#space#langSPC('nmap', ['l','s', 'i'],
         \ 'call SpaceVim#plugins#repl#start("c")',
