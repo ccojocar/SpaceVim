@@ -28,6 +28,8 @@ if has('vim_starting')
       let &pythonthreedll = get(split(globpath(fnamemodify($PYTHON3_HOST_PROG, ':h'), 'python*.dll'), '\n'), -1, '')
       let &pythonthreehome = fnamemodify($PYTHON3_HOST_PROG, ':h')
     endif
+  let g:loaded_python_provider = 0
+  let g:loaded_ruby_provider = 0
   endif
 endif
 " Detect root directory of SpaceVim
