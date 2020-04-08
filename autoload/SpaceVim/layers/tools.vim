@@ -30,6 +30,7 @@ function! SpaceVim#layers#tools#plugins() abort
         \ 'BookmarkPrev',
         \ ],
         \ 'loadconf_before' : 1}])
+  let s:CMP = SpaceVim#api#import('vim#compatible')
   if s:CMP.has('python')
     call add(plugins, ['gregsexton/VimCalc', {'on_cmd' : 'Calc'}])
   elseif s:CMP.has('python3')
@@ -56,6 +57,15 @@ function! SpaceVim#layers#tools#config() abort
   nnoremap <silent> ma :<C-u>BookmarkShowAll<Cr>
   nnoremap <silent> mn :<C-u>BookmarkNext<Cr>
   nnoremap <silent> mp :<C-u>BookmarkPrev<Cr>
+  nnoremap <silent> <F7> :MundoToggle<CR>
+  " nnoremap <silent> mm :<C-u>BookmarkToggle<Cr>
+  " nnoremap <silent> mi :<C-u>BookmarkAnnotate<Cr>
+  " nnoremap <silent> ma :<C-u>BookmarkShowAll<Cr>
+  " nnoremap <silent> mn :<C-u>BookmarkNext<Cr>
+  " nnoremap <silent> mp :<C-u>BookmarkPrev<Cr>
+
+  nnoremap <silent> <F7> :MundoToggle<CR>
+>>>>>>> 65e8404d... Disable the bookmarks in order to be able to use the normal vim marks
   augroup rainbow_lisp
     autocmd!
     autocmd FileType lisp,clojure,scheme,racket,java RainbowParentheses
