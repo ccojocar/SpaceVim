@@ -122,8 +122,6 @@ let s:lsp_servers = {
       \ 'groovy' : ['java', '-jar', '~/bin/groovy-language-server.jar'],
       \ 'go' : ['gopls', '-mode', 'stdio'],
       \ 'haskell' : ['hie-wrapper', '--lsp'],
-      \ 'rust' : ['rustup', 'run', 'nightly', 'rls'],
-      \ 'python' : ['pyls'],
       \ 'html' : ['html-languageserver', '--stdio'],
       \ 'javascript' : ['javascript-typescript-stdio'],
       \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; server = LanguageServer.LanguageServerInstance(STDIN, STDOUT, false); server.runlinter = true; run(server);'],
