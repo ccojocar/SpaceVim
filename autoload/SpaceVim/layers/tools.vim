@@ -65,7 +65,6 @@ function! SpaceVim#layers#tools#config() abort
   " nnoremap <silent> mp :<C-u>BookmarkPrev<Cr>
 
   nnoremap <silent> <F7> :MundoToggle<CR>
->>>>>>> 65e8404d... Disable the bookmarks in order to be able to use the normal vim marks
   augroup rainbow_lisp
     autocmd!
     autocmd FileType lisp,clojure,scheme,racket,java RainbowParentheses
