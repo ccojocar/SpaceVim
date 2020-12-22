@@ -106,8 +106,8 @@ function! SpaceVim#layers#lsp#config() abort
     call SpaceVim#lsp#reg_server(ft, s:lsp_servers[ft])
   endfor
 
-  let g:LanguageClient_loadSettings = 1
-  let g:LanguageClient_settingsPath = "/Users/cosmin/.SpaceVim.d/lsp-settings.json"
+  " let g:LanguageClient_loadSettings = 1
+  " let g:LanguageClient_settingsPath = "/Users/cosmin/.SpaceVim.d/lsp-settings.json"
 endfunction
 
 let s:enabled_fts = []
