@@ -120,7 +120,7 @@ let s:lsp_servers = {
       \ 'dart' : ['dart_language_server'],
       \ 'dockerfile' : ['docker-langserver', '--stdio'],
       \ 'groovy' : ['java', '-jar', '~/bin/groovy-language-server.jar'],
-      \ 'go' : ['gopls', '-mode', 'stdio'],
+      \ 'go' : ['gopls'],
       \ 'haskell' : ['hie-wrapper', '--lsp'],
       \ 'html' : ['html-languageserver', '--stdio'],
       \ 'javascript' : ['javascript-typescript-stdio'],
