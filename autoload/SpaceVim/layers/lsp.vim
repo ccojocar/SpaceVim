@@ -138,7 +138,7 @@ let s:lsp_servers = {
       \ 'purescript' : ['purescript-language-server', '--stdio'],
       \ 'python' : ['pyls'],
       \ 'crystal' : ['scry'],
-      \ 'rust' : ['rustup', 'run', 'nightly', 'rls'],
+      \ 'rust' : ['rust-analyzer'],
       \ 'scala' : ['metals-vim'],
       \ 'sh' : ['bash-language-server', 'start'],
       \ 'typescript' : ['typescript-language-server', '--stdio'],
