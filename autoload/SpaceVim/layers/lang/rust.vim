@@ -135,6 +135,28 @@ endfunction
 
 function! s:language_specified_mappings() abort
   call SpaceVim#mapping#space#langSPC('nmap', ['l', 'r'], 'call SpaceVim#plugins#runner#open()', 'execute current file', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','e'],
+        \ 'call LanguageClient_textDocument_rename()',
+        \ 'go rename', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','f'],
+        \ 'call LanguageClient_textDocument_documentSymbol()',
+        \ 'list symblols', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','F'],
+        \ 'call LanguageClient_workspace_symbol()',
+        \ 'list workspace symblols', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','g'],
+        \ 'call LanguageClient_textDocument_definition()',
+        \ 'go def', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','h'],
+        \ 'call LanguageClient_textDocument_hover()',
+        \ 'go info', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','i'],
+        \ 'call LanguageClient#textDocument_implementation()',
+        \ 'go implements', 1)
+  call SpaceVim#mapping#space#langSPC('nmap', ['l','r'],
+        \ 'call LanguageClient_textDocument_references()',
+        \ 'go referrers', 1)
+
   let g:_spacevim_mappings_space.l.c = {'name' : '+Cargo'}
   call SpaceVim#mapping#space#langSPC('nnoremap', ['l','c', 'r'], 'call call('
         \ . string(function('s:execCMD')) . ', ["cargo run"])',

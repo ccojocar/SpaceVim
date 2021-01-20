@@ -127,7 +127,7 @@ let s:lsp_servers = {
       \ 'css' : ['css-languageserver', '--stdio'],
       \ 'dart' : ['dart_language_server'],
       \ 'dockerfile' : ['docker-langserver', '--stdio'],
-      \ 'go' : ['go-langserver', '-mode', 'stdio'],
+      \ 'go' : ['gopls'],
       \ 'haskell' : ['hie-wrapper', '--lsp'],
       \ 'html' : ['html-languageserver', '--stdio'],
       \ 'javascript' : ['javascript-typescript-stdio'],
@@ -142,6 +142,7 @@ let s:lsp_servers = {
       \ 'scala' : ['metals-vim'],
       \ 'sh' : ['bash-language-server', 'start'],
       \ 'typescript' : ['typescript-language-server', '--stdio'],
+      \ 'terraform' : ['terraform-lsp'],
       \ 'ruby' : ['solargraph',  'stdio'],
       \ 'vue' : ['vls']
       \ }
